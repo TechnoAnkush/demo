@@ -1,17 +1,42 @@
-[
-    {
-        "Profit": "1.16%",
-        "instalment": "14,587.98",
-        "financeAmount" : "200000"
-    },
-    {
-        "Profit": "1.09%",
-        "instalment": "14,989.98",
-        "financeAmount" : "2,50000"
-    },
-    {
-        "Profit": "2.01%",
-        "instalment": "15,587.98",
-        "financeAmount" : "27,0000"
-    }
-]
+{
+  "data": {
+    "Banks": 
+    [
+      {
+        "id": 1,
+        "name": "Axis Bank",
+        "loanstart": 20000,
+        "loanEnd":100000,
+        "intreset": 2.1
+      },
+      {
+        "id": 2,
+        "name": "HDFC Bank",
+        "loanstart": 20000,
+        "loanEnd":100000,
+        "intreset": 2.0
+      },
+      {
+        "id": 3,
+        "name": "Yes Bank",
+        "loanstart": 70000,
+        "loanEnd":125000,
+        "intreset": 2.3
+      },
+      {
+        "id": 4,
+        "name": "ICICI Bank",
+        "loanstart": 200000,
+        "loanEnd":320000,
+        "intreset": 2.9
+      },
+      {
+        "id": 5,
+        "name": "Idfc Bank",
+        "loanstart": 300000,
+        "loanEnd":425000,
+        "intreset": 3.4
+      }
+    ]
+  }
+}

@@ -16,6 +16,7 @@ function showTab(n) {
   } else {
     document.getElementById("nextBtn").innerHTML = "Calculate the Cost";
   }
+
   
   // fixStepIndicator(n)
 }
@@ -67,6 +68,7 @@ function nextPrev(n) {
     document.querySelector("input[name=radiobutton3][value="+buttonGet+"]").checked = true;
     document.getElementById("loan3").value = loan;
     document.getElementById("month3").value = month;
+    
     //document.getElementById("vehicle3").value = tick;
 
   // Exit the f
@@ -80,6 +82,9 @@ function nextPrev(n) {
     // ...  submitted:
     document.getElementById("regForm").submit();
     return false;
+  }
+  if(currentTab == 3){
+    fetchbanksList();
   }
   // Otherwise, display the correct tab:
   showTab(currentTab);
@@ -114,14 +119,19 @@ function validateForm() {
   }
   if(!radionValidation){
     document.getElementById('rd').innerHTML =" ** employer field reuired";
-    
     valid = false;
+  }
+  else{
+    document.getElementById('rd').innerHTML ="";
   } 
   
   //checkbox validation
   if(!document.getElementById('vehicle1').checked){
     document.getElementById('tick').innerHTML =" ** checkbox required";
     valid = false;
+  }
+  else{
+    document.getElementById('tick').innerHTML ="";
   }
   
   // console.log(radioValid)
@@ -134,35 +144,53 @@ function validateForm() {
 //fetch data
 
 
+var banks_list;
+let http = new XMLHttpRequest();
+var url = "data.json";
+http.open('GET',url,true);
+http.send();
+http.addEventListener('load',function(){
+  banks_list = JSON.parse(this.responseText); 
+});
 
-// let http = new XMLHttpRequest();
-// http.open('GET','data.json',true);
-// http.send();
-// http.addEventListener('load',function(){
-//   if(this.readyState == 4 && this.status ==200){
-//     let products = JSON.parse(this.responseText);
-// let output = "";
-// for (let item of products){
-//   output+=`
-//   <div class="row g-0">
-//       <div class="col-md-4">
-//         <img src="index.png" class="img-fluid rounded-start" alt="...">
-//       </div>
-//       <div class="col-md-8">
-//           <div class="card-body">
-//             <h5 class="card-title">${item.Profit}</h5>
-//             <p class="card-text">Anunal Profit Margin</p>
-//             <h5 class="card-title">SAR 14,676.91</h5>
-//             <p class="card-text"> Monthly Instalment</p>
-//             <h5 class="card-title">SAR 2,00,000</h5>
-//             <p class="card-text"> Net Fancing Amount</p>
-//             <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-//           </div>
-//         </div>
-//   </div>
-//                                                   `
-// }
-// document.querySelector(".products").innerHTML = output;
-//   }
-// })
+
+function fetchbanksList(){
+  var loan = document.getElementById("loanamount").value;
+  console.log("loan",loan);
+    var fetchbanks = banks_list.data.Banks.filter((value) => {
+      //console.log("value.loanstart",value.loanstart);
+      //console.log("value.loanEnd",value.loanEnd);
+      //console.log("loan",loan);
+
+      if(loan >= value.loanstart  && loan <= value.loanEnd){
+        //console.log("sdfds");
+        return value;
+      }
+ 
+    })
+    output = "";
+    for (let item of fetchbanks){
+      output+=`
+      
+          <div class="col-md-4">
+            <img src="index.png" class="img-fluid rounded-start" alt="...">
+        </div>
+          <div class="col-md-8">
+              <div class="card-body">
+                <h5 class="card-title">${item.name}</h5>
+                <h5 class="card-title">${item.intreset}%</h5>
+                <p class="card-text">Anunal Profit Margin</p>
+                <h5 class="card-title">SAR 14,676.91</h5>
+                <p class="card-text"> Monthly Instalment</p>
+                <h5 class="card-title">SAR ${loan}</h5>
+                <p class="card-text"> Net Fancing Amount</p>
+                <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+              </div>
+          </div>
+      
+                                                `
+}
+    // console.log("fetch_banks",fetch_banks);
+    document.querySelector(".products").innerHTML = output;
+}
  
