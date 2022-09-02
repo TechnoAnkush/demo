@@ -19,7 +19,7 @@ input.invalid {
   height: 15px;
   width: 15px;
   margin: 0 2px;
-  background-color: #2c3599;
+  background-color :#3B4183;
   border: none;  
   border-radius: 50%;
   display: inline-block;
@@ -32,6 +32,6 @@ input.invalid {
 
 /* Mark the steps that are finished and valid: */
 .step.finish {
-  background-color: #3B4183;
+  background-color:  #0015ff;
 }
  

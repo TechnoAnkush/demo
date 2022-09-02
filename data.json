@@ -5,37 +5,52 @@
       {
         "id": 1,
         "name": "Axis Bank",
+        "monthlyInstalment": "10567.01",
         "loanstart": 20000,
         "loanEnd":100000,
-        "intreset": 2.1
+        "intreset": 2.1,
+        "loanterm" : 1,
+        "loantermend" : 2
       },
       {
         "id": 2,
         "name": "HDFC Bank",
+        "monthlyInstalment": "11997.21",
         "loanstart": 20000,
         "loanEnd":100000,
-        "intreset": 2.0
+        "intreset": 2.0,
+        "loanterm" : 1.5,
+        "loantermend" : 3
       },
       {
         "id": 3,
         "name": "Yes Bank",
+        "monthlyInstalment": "13367.19",
         "loanstart": 70000,
         "loanEnd":125000,
-        "intreset": 2.3
+        "intreset": 2.3,
+        "loanterm" : 1.9,
+        "loantermend" : 3
       },
       {
         "id": 4,
         "name": "ICICI Bank",
+        "monthlyInstalment": "12367.09",
         "loanstart": 200000,
         "loanEnd":320000,
-        "intreset": 2.9
+        "intreset": 2.9,
+        "loanterm" : 2.4,
+        "loantermend":4
       },
       {
         "id": 5,
         "name": "Idfc Bank",
+        "monthlyInstalment": "14567.00",
         "loanstart": 300000,
         "loanEnd":425000,
-        "intreset": 3.4
+        "intreset": 3.4,
+        "loanterm" : 4.1,
+        "loantermend":6
       }
     ]
   }
